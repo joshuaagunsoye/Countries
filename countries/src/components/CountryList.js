@@ -1,10 +1,12 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import Country from "./Country";
+import MultipleSelectPlaceholder from "./RegionFilter";
 function CountryList() {
   const [countryList, setCountryList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [filteredCountryList, setFilteredCountryList] = useState([]);
+  // const [filterParam, setFilterParam] = useState(["All"]);
 
   const handleChange = (e) => {
     const searchValue = e.target.value.toLowerCase();
@@ -30,7 +32,7 @@ function CountryList() {
         type="search"
         placeholder="Search for country"
         onChange={handleChange}
-      ></input>
+      ></input> <span> <MultipleSelectPlaceholder /> </span>
 
       {filteredCountryList.map((country, index) => {
         return (
